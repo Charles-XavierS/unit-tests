@@ -17,13 +17,15 @@
 */
 
 const vqv = (name, age) => {
+  // Retorna undefined com a função sendo chamada sem nenhum parâmetro.
   if (name === undefined || age === undefined) {
     return undefined;
   }
-  const line1 = `Oi, meu nome é ${name}!`;
-  const line2 = `Tenho ${age} anos,`;
-  const line3 = 'trabalho na Trybe e mando muito em programação!';
-  return `${line1}\n${line2}\n${line3}\n#VQV!`;
+  // Teplate literals
+  return `Oi, meu nome é ${name}!
+Tenho ${age} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
 };
 
 module.exports = vqv;
