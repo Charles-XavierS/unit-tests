@@ -16,11 +16,11 @@
 */
 
 const createStudent = (studentName) => {
-  const feedback = () => 'Eita pessoa boa!';
   const newObject = {
     name: studentName,
-    feedback,
+    feedback: '',
   };
+  newObject.feedback = () => 'Eita pessoa boa!';
   return newObject;
 };
 
