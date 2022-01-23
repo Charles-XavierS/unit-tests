@@ -79,6 +79,33 @@
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+let meuRestaurante = {};
+
+const order = (string) => {
+  meuRestaurante.consumption.push(string);
+};
+
+// source: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+// https://stackoverflow.com/questions/69543572/spread-syntax-in-an-array-of-objects
+
+const pay = () => {
+  let sum = 0;
+  const menu = meuRestaurante.fetchMenu();
+  const consum = { ...menu.food, ...menu.drink };
+  for (let index = 0; index < meuRestaurante.consumption.length; index += 1) {
+    sum += consum[meuRestaurante.consumption[index]];
+  }
+  return sum * 1.1;
+};
+
+const createMenu = (object) => {
+  meuRestaurante = {
+    fetchMenu: () => object,
+    consumption: [],
+    order,
+    pay,
+  };
+  return meuRestaurante;
+};
 
 module.exports = createMenu;
